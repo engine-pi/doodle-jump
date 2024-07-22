@@ -1,13 +1,11 @@
-
 /**
  * Beschreiben Sie hier die Klasse DOODLER.
- * 
- * @author (Ihr Name) 
+ *
+ * @author (Ihr Name)
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class DOODLER extends BILD
 {
-
     /**
      * Konstruktor für Objekte der Klasse DOODLER
      */
@@ -15,5 +13,4 @@ public class DOODLER extends BILD
     {
         super(266, 300, "images/doodler.png");
     }
-
 }

@@ -1,8 +1,7 @@
-
 /**
  * Beschreiben Sie hier die Klasse DOODLE_JUMP.
- * 
- * @author (Ihr Name) 
+ *
+ * @author (Ihr Name)
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class DOODLE_JUMP extends SPIEL
@@ -23,80 +22,89 @@ public class DOODLE_JUMP extends SPIEL
     public DOODLE_JUMP()
     {
         super(532, 850, false, false, false);
-
         setzeHintergrundgrafik("images/background.png");
-
         doodler = new DOODLER();
         doodler.aktivMachen();
-
-        platformen = new PLATFORM[10]; 
-        for(int i = 0; i < platformen.length; i++) {
+        platformen = new PLATFORM[10];
+        for (int i = 0; i < platformen.length; i++)
+        {
             int x_zufall = zufallszahlVonBis(50, 482);
-
             platformen[i] = new PLATFORM(x_zufall, 85 * (i + 1));
             platformen[i].neutralMachen();
         }
-
         punktestand = 0;
         setzeNurLinkePunkteanzeigeSichtbar();
         setzePunkteanzeigeLinks(punktestand);
-
         tickerNeuStarten(100);
     }
 
     /**
-     * Wird bei jedem Tastendruck automatisch aufgerufen und automatisch das Kuerzel der entsprechenden Taste mitgegeben.
-     * 
-     * @param   taste   ganzzahliges Kuerzel der Taste (Farben_Tastencode.pdf) 
-     *                  oder ENUM-Typ aus Klasse TASTE (darin die Klassen-Doku lesen)
+     * Wird bei jedem Tastendruck automatisch aufgerufen und automatisch das
+     * Kuerzel der entsprechenden Taste mitgegeben.
+     *
+     * @param taste ganzzahliges Kuerzel der Taste (Farben_Tastencode.pdf) oder
+     *              ENUM-Typ aus Klasse TASTE (darin die Klassen-Doku lesen)
      */
     @Override
-    public void tasteReagieren(int taste) 
+    public void tasteReagieren(int taste)
     {
-        switch(taste) {
-            case TASTE.OBEN: 
+        switch (taste)
+        {
+        case TASTE.OBEN:
             doodler.sprung(10);
             break;
-            case TASTE.LINKS:
-            if(doodler.getX() > 0) {
+
+        case TASTE.LINKS:
+            if (doodler.getX() > 0)
+            {
                 doodler.bewegen(-50, 0);
             }
-            else doodler.setzeMittelpunkt(513, (int) doodler.getY());
+            else
+                doodler.setzeMittelpunkt(513, (int) doodler.getY());
             break;
-            case TASTE.RECHTS:
-            if(doodler.getX() < 532) {
+
+        case TASTE.RECHTS:
+            if (doodler.getX() < 532)
+            {
                 doodler.bewegen(50, 0);
             }
-            else doodler.setzeMittelpunkt(20, (int) doodler.getY());
+            else
+                doodler.setzeMittelpunkt(20, (int) doodler.getY());
             break;
         }
     }
 
     /**
-     * Wird regelmaessig automatisch aufgerufen. So kommt Bewegung ins Spiel! 
+     * Wird regelmaessig automatisch aufgerufen. So kommt Bewegung ins Spiel!
      * Tick-Intervall kann angepasst werden. Ticker muss erst gestartet werden.
      */
     @Override
-    public void tick() 
+    public void tick()
     {
-        if(istSpielVorbei()) {
+        if (istSpielVorbei())
+        {
             tickerStoppen();
             gameover();
         }
-        else {
-            for(int i = 0; i < platformen.length; i++) {
-                if(platformen[i].getY() < 850) {
+        else
+        {
+            for (int i = 0; i < platformen.length; i++)
+            {
+                if (platformen[i].getY() < 850)
+                {
                     platformen[i].bewegen(0, 5);
-
-                    // Plattformen erst passiv machen, wenn sie "unterhalb" des Doodlers sind
-                    if(platformen[i].getY() > doodler.getY()) {
+                    // Plattformen erst passiv machen, wenn sie "unterhalb" des
+                    // Doodlers sind
+                    if (platformen[i].getY() > doodler.getY())
+                    {
                         platformen[i].passivMachen();
                     }
-                    else platformen[i].neutralMachen();
+                    else
+                        platformen[i].neutralMachen();
                 }
-                else {
+                else
+                {
                     int x_zufall = zufallszahlVonBis(50, 482);
-
                     platformen[i].setzeMittelpunkt(x_zufall, 0);
                 }
             }
@@ -109,10 +117,12 @@ public class DOODLE_JUMP extends SPIEL
      */
     public boolean istSpielVorbei()
     {
-        if(doodler.getY() > 850) {
+        if (doodler.getY() > 850)
+        {
             return true;
         }
-        else return false;
+        else
+            return false;
     }
 
     /**
@@ -123,15 +133,14 @@ public class DOODLE_JUMP extends SPIEL
         gameover_text = new TEXT(200, 425, "Game over!");
         gameover_text.setzeGroesse(50);
         gameover_text.setzeFarbe("Rot");
-
         gameover_sound = new SOUND("sounds/gameover.mp3");
         gameover_sound.play();
     }
 
     /**
      * Methode, die den Punktestand aktualisiert
-     * 
-     * @param  neuerPunktestand	Neuer Punktestand
+     *
+     * @param neuerPunktestand Neuer Punktestand
      */
     public void aktualisierePunktestand()
     {

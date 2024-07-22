@@ -1,13 +1,11 @@
-
 /**
  * Beschreiben Sie hier die Klasse PLATFORM.
- * 
- * @author (Ihr Name) 
+ *
+ * @author (Ihr Name)
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class PLATFORM extends BILD
 {
-
     /**
      * Konstruktor für Objekte der Klasse PLATFORM
      */
@@ -15,5 +13,4 @@ public class PLATFORM extends BILD
     {
         super(x, y, "images/platform.png");
     }
-
 }

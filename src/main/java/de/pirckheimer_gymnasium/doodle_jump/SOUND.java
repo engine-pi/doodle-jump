@@ -2,29 +2,25 @@ import ea.Sound;
 
 /**
  * Klasse SOUND kann MP3-Dateien abspielen
- * 
- * @author      mike ganshorn
- * 
- * @version     2.0 (2017-04-11)
- * 
- * @changelog   2.0 Umstieg von javaZoom auf Engine-Alpha-Sound
+ *
+ * @author mike ganshorn
+ *
+ * @version 2.0 (2017-04-11)
+ *
+ * @changelog 2.0 Umstieg von javaZoom auf Engine-Alpha-Sound
  */
-public class SOUND 
-extends Sound
+public class SOUND extends Sound
 {
-    
-
     /**
      * Konstruktor der Klasse SOUND.
-     * 
-     * @param   datei   Name der Datei (mit Endung) - muss im Projekt-Ordner liegen
+     *
+     * @param datei Name der Datei (mit Endung) - muss im Projekt-Ordner liegen
      */
-    public SOUND( String datei )
+    public SOUND(String datei)
     {
-        super( datei );
+        super(datei);
     }
 
-    
     /**
      * Methode play.
      *
@@ -33,8 +29,7 @@ extends Sound
     {
         super.play();
     }
-    
-    
+
     /**
      * Methode loop.
      *
@@ -43,8 +38,7 @@ extends Sound
     {
         super.loop();
     }
-    
-    
+
     /**
      * Methode pause.
      *
@@ -53,8 +47,7 @@ extends Sound
     {
         super.pause();
     }
-    
-    
+
     /**
      * Methode unpause.
      *
@@ -63,8 +56,7 @@ extends Sound
     {
         super.unpause();
     }
-    
-    
+
     /**
      * Methode stop.
      *
