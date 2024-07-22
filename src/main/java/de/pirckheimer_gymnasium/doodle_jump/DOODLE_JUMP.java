@@ -1,3 +1,5 @@
+package de.pirckheimer_gymnasium.doodle_jump;
+
 /**
  * Beschreiben Sie hier die Klasse DOODLE_JUMP.
  *

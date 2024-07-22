@@ -1,3 +1,5 @@
+package de.pirckheimer_gymnasium.doodle_jump;
+
 import ea.Knoten;
 import ea.edu.BildE;
 import ea.edu.FensterE;

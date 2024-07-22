@@ -1,9 +1,6 @@
-/**
- * Beschreiben Sie hier die Klasse PLATFORM.
- *
- * @author (Ihr Name)
- * @version (eine Versionsnummer oder ein Datum)
- */
+package de.pirckheimer_gymnasium.doodle_jump;
+
+
 public class PLATFORM extends BILD
 {
     /**
